@@ -41,7 +41,7 @@ function Product() {
                                 <div className='product' key={index}>
                                         <img src={items.image}></img>
                                         <h3>{items.title}</h3>
-                                        <p>{trimDescription(items.description)}</p>
+                                        <p className='description'>{trimDescription(items.description)}</p>
                                         <h2>$:{items.price}</h2>
                                     {
                                             (existsIncart(items.id))

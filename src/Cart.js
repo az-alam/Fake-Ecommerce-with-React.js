@@ -12,9 +12,15 @@ function Cart() {
         e.preventDefault()
         setCart(cart.filter(cartItem=>cartItem.id!==itemDelete.id))
     }
+
+    function trimDescription(desc) {
+        return (
+            desc.length > 80 ? desc.slice(0, 80) + "..." : desc
+        )
+    }
   return (
     <section className='cart'>
-        <h1>Cart</h1>
+        <h1>Your Cart</h1>
         <div className='cart-list'>
             {
                 cart.map((item, index)=>{
@@ -25,7 +31,8 @@ function Cart() {
                             </div>
                             <div className='context-div'>
                                 <h3>{item.title}</h3>
-                                <p>$:{item.price}</p>
+                                <p className='description'>{trimDescription(item.description)}</p>
+                                <h2>$:{item.price}</h2>
                                 <Link onClick={(e)=>handleDeleteFromCart(e, item)}><DeleteIcon/></Link>
                             </div>
                         </div>
