@@ -9,7 +9,11 @@ import Cart from './Cart';
 export const ecommerceContext=createContext({})
 
 function Home() {
-    const [cart, setCart]=useState([])
+    const [cart, setCart]=useState(
+    JSON.parse(localStorage.getItem("product")!==null)? JSON.parse(localStorage.getItem("product")):[]
+
+    )
+    
     return (
        <>
        <ecommerceContext.Provider value={{cart, setCart}}>

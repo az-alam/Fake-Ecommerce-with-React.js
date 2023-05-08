@@ -7,6 +7,11 @@ function Product() {
     const [product, setProduct] = useState([])
     const { cart, setCart } = useContext(ecommerceContext)
 
+
+    useEffect(()=>{
+        localStorage.setItem("product", JSON.stringify(cart))
+    },[cart])
+
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products')
             .then((result) => {
