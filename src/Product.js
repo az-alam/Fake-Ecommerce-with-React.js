@@ -12,10 +12,10 @@ function Product() {
         localStorage.setItem("product", JSON.stringify(cart))
     },[cart])
 
-    useEffect(() => {
+    useEffect(() => { 
         axios.get('https://fakestoreapi.com/products')
             .then((result) => {
-                // console.log(result.data)
+                console.log(result.data)
                 setProduct(result.data)
             })
     }, [])
